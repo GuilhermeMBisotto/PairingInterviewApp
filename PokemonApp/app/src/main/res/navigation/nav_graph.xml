@@ -3,26 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/PokemonListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="br.com.hypeflame.pokemonapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/PokemonListFragment"
+        android:name="br.com.hypeflame.pokemonapp.feature.list.PokemonListFragment"
+        android:label="@string/pokemon_list_fragment_label"
+        tools:layout="@layout/fragment_pokemon_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_PokemonListFragment_to_PokemonDetailFragment"
+            app:destination="@id/PokemonDetailFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="br.com.hypeflame.pokemonapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/PokemonDetailFragment"
+        android:name="br.com.hypeflame.pokemonapp.feature.detail.PokemonDetailFragment"
+        android:label="@string/pokemon_detail_fragment_label"
+        tools:layout="@layout/fragment_pokemon_detail">
+
+        <argument
+            android:name="pokemon_id"
+            android:defaultValue="0"
+            app:argType="integer" />
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_PokemonDetailFragment_to_PokemonListFragment"
+            app:destination="@id/PokemonListFragment" />
     </fragment>
 </navigation>
